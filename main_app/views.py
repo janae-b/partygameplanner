@@ -2,14 +2,15 @@ from django.shortcuts import render
 from django.http import HttpResponse
 
 class Game: 
-  def __init__(self, name):
+  def __init__(self, name, description, number):
     self.name = name
-
+    self.description = description
+    self.number = number
 
 games = [
-  Game('Pinata'),
-  Game('JackBox Games'),
-  Game('Unwrap the Saran Wrap')
+  Game('Pinata', 'Hit it!', 20),
+  Game('JackBox Games', 'Virtual games you can play anywhere with anyone!', 8),
+  Game('Unwrap the Saran Wrap', 'Find the prizes within the saran wrap!', 10)
 ]
 
 def home(request):

@@ -7,13 +7,12 @@
   <div class="card">
     <div class="card-content">
       <span class="card-title">{{ game.name }}</span>
-      {% comment %} <p>Breed: {{ cat.breed }}</p>
-      <p>Description: {{ cat.description }}</p>
-      {% if cat.age > 0 %}
-        <p>Age: {{ cat.age }}</p>
+      <p>Description: {{ game.description }}</p>
+      {% if game.number > 0 %}
+        <p>Number of People: {{ game.number }}</p>
       {% else %}
-        <p>Age: Kitten</p>
-      {% endif %} {% endcomment %}
+        <p>Number: Who knows?</p>
+      {% endif %}
     </div>
   </div>
 {% endfor %}
