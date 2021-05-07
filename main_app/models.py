@@ -10,6 +10,8 @@ PHASES = (
 class Game(models.Model):
   name = models.CharField(max_length=100)
   description = models.TextField(max_length=250)
+  instructions = models.TextField(max_length=250)
+  materials = models.CharField(max_length=100)
   number = models.IntegerField()
 
   def __str__(self):
