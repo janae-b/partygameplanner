@@ -5,15 +5,17 @@
 
 {% for game in games %}
   <div class="card">
-    <div class="card-content">
-      <span class="card-title">{{ game.name }}</span>
-      <p>Description: {{ game.description }}</p>
-      {% if game.number > 0 %}
-        <p>Number of People: {{ game.number }}</p>
-      {% else %}
-        <p>Number: Who knows?</p>
-      {% endif %}
-    </div>
+    <a href="/games/{{ game.id }}">
+      <div class="card-content">
+        <span class="card-title">{{ game.name }}</span>
+    </a> 
+        <p>Description: {{ game.description }}</p>
+        {% if game.number > 0 %}
+          <p>Number of People: {{ game.number }}</p>
+        {% else %}
+          <p>Number: Who knows?</p>
+        {% endif %}
+      </div>
   </div>
 {% endfor %}
 
