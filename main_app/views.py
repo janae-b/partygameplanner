@@ -1,6 +1,7 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.views.generic.edit import CreateView
 from .models import Game
+from .forms import PlanningForm
 from django.http import HttpResponse
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 
@@ -16,7 +17,8 @@ def games_index(request):
 
 def games_detail(request, game_id):
   game = Game.objects.get(id=game_id)
-  return render(request, 'games/detail.html', { 'game': game })
+  planning_form = PlanningForm()
+  return render(request, 'games/detail.html', { 'game': game, 'planning_form': planning_form })
 
 class GameCreate(CreateView):
   model = Game
@@ -31,5 +33,15 @@ class GameDelete(DeleteView):
   model = Game
   success_url = '/games/'
 
-
+def add_planning(request, game_id):
+  # create a ModelForm instance using the data in request.POST
+  form = PlanningForm(request.POST)
+  # validate the form
+  if form.is_valid():
+    # don't save the form to the db until it
+    # has the cat_id assigned
+    new_planning = form.save(commit=False)
+    new_planning.game_id = game_id
+    new_planning.save()
+  return redirect('detail', game_id=game_id)
 
