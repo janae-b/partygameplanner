@@ -2,6 +2,7 @@ from django.shortcuts import render
 from django.views.generic.edit import CreateView
 from .models import Game
 from django.http import HttpResponse
+from django.views.generic.edit import CreateView, UpdateView, DeleteView
 
 def home(request):
   return render(request, 'home.html')
@@ -20,6 +21,15 @@ def games_detail(request, game_id):
 class GameCreate(CreateView):
   model = Game
   fields = '__all__'
+
+class GameUpdate(UpdateView):
+  model = Game
+  # Let's disallow the renaming of a cat by excluding the name field!
+  fields = ['name', 'description', 'number']
+
+class GameDelete(DeleteView):
+  model = Game
+  success_url = '/games/'
 
 
 
