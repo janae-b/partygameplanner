@@ -64,7 +64,28 @@
       <h5>No Events :(</h5>
     {% endif %}
   </div>
-  <!-- Available toys will come after this line -->
+  <div class="col s6">
+    <h3>Available Events</h3>
+    {% if events.count %}
+      {% for event in events.all %}
+        <div class="card">
+          <div class="card-content">
+            <span class="card-title">
+              A {{ event.name }} on <span style="date: {{ event.date }}">{{ event.date }}</span>
+            </span>
+          </div>
+          <div class="card-action">
+            <form action="{% url 'assoc_event' game.id event.id %}" method="post">
+              {% csrf_token %}
+              <button type="submit" class="btn">Add</button>
+            </form>
+          </div>
+        </div>
+      {% endfor %}
+    {% else %}
+      <h5>{{game.name}} will already be played at all the events available</h5>
+    {% endif %}
+  </div>
 </div>
 <script>
   var dateEl = document.getElementById('id_date');
