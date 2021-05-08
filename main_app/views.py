@@ -1,9 +1,9 @@
 from django.shortcuts import render, redirect
-from django.views.generic.edit import CreateView
-from .models import Game
+from django.views.generic.edit import CreateView, UpdateView, DeleteView
+from django.views.generic import ListView, DetailView
 from .forms import PlanningForm
 from django.http import HttpResponse
-from django.views.generic.edit import CreateView, UpdateView, DeleteView
+from .models import Game, Event
 
 def home(request):
   return render(request, 'home.html')
@@ -44,4 +44,22 @@ def add_planning(request, game_id):
     new_planning.game_id = game_id
     new_planning.save()
   return redirect('detail', game_id=game_id)
+
+class EventList(ListView):
+  model = Event
+
+class EventDetail(DetailView):
+  model = Event
+
+class EventCreate(CreateView):
+  model = Event
+  fields = '__all__'
+
+class EventUpdate(UpdateView):
+  model = Event
+  fields = ['name', 'date']
+
+class EventDelete(DeleteView):
+  model = Event
+  success_url = '/events/'
 

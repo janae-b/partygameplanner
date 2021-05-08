@@ -26,6 +26,7 @@ class Game(models.Model):
   materials = models.CharField(max_length=100)
   number = models.IntegerField()
   credit = models.URLField()
+  events = models.ManyToManyField(Event)
 
   def __str__(self):
     return self.name
