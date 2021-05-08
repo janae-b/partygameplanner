@@ -1,5 +1,6 @@
 from django.db import models
 from django.urls import reverse
+from datetime import date
 
 PHASES = (
       ('M', 'Materials'),
@@ -7,12 +8,24 @@ PHASES = (
       ('R', 'Ready to Play')
 )
 
+class Event(models.Model):
+  name = models.CharField(max_length=50)
+  date = models.DateField('complete date')
+
+  def __str__(self):
+    return self.name
+
+  def get_absolute_url(self):
+    return reverse("events_detail", kwargs={"pk": self.id})
+  
+
 class Game(models.Model):
   name = models.CharField(max_length=100)
   description = models.TextField(max_length=250)
   instructions = models.TextField(max_length=250)
   materials = models.CharField(max_length=100)
   number = models.IntegerField()
+  credit = models.URLField()
 
   def __str__(self):
     return self.name

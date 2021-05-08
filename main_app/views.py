@@ -27,7 +27,7 @@ class GameCreate(CreateView):
 class GameUpdate(UpdateView):
   model = Game
   # Let's disallow the renaming of a cat by excluding the name field!
-  fields = ['name', 'description', 'materials', 'instructions', 'number']
+  fields = ['name', 'description', 'materials', 'instructions', 'number', 'credit']
 
 class GameDelete(DeleteView):
   model = Game

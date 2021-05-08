@@ -16,6 +16,7 @@
         {% else %}
           <p>Number of People: However many you want</p>
         {% endif %}
+        <p>Credit for the idea: {{ game.credit }}</p>
       </div>
       <div class="card-action">
         <a href="{% url 'games_update' game.id %}">Edit</a>
