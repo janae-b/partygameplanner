@@ -3,6 +3,8 @@ from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.views.generic import ListView, DetailView
 from django.contrib.auth import login
 from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.decorators import login_required
+from django.contrib.auth.mixins import LoginRequiredMixin
 from .forms import PlanningForm
 from django.http import HttpResponse
 import uuid
@@ -18,17 +20,19 @@ def home(request):
 def about(request):
   return render(request, 'about.html')
 
+@login_required
 def games_index(request):
   games = Game.objects.filter(user=request.user)
   return render(request, 'games/index.html', { 'games': games })
 
+@login_required
 def games_detail(request, game_id):
   game = Game.objects.get(id=game_id)
   events_games_arent_played = Event.objects.exclude(id__in = game.events.all().values_list('id'))
   planning_form = PlanningForm()
   return render(request, 'games/detail.html', { 'game': game, 'planning_form': planning_form, 'events': events_games_arent_played })
 
-class GameCreate(CreateView):
+class GameCreate(LoginRequiredMixin, CreateView):
   model = Game
   fields = ['name', 'description', 'instructions', 'materials', 'number', 'credit']
 
@@ -36,19 +40,21 @@ class GameCreate(CreateView):
     form.instance.user = self.request.user
     return super().form_valid(form)
 
-class GameUpdate(UpdateView):
+class GameUpdate(LoginRequiredMixin, UpdateView):
   model = Game
   # Let's disallow the renaming of a cat by excluding the name field!
   fields = ['name', 'description', 'materials', 'instructions', 'number', 'credit']
 
-class GameDelete(DeleteView):
+class GameDelete(LoginRequiredMixin, DeleteView):
   model = Game
   success_url = '/games/'
 
+@login_required
 def assoc_event(request, game_id, event_id):
   Game.objects.get(id=game_id).parties.add(event_id)
   return redirect('detail', game_id=game_id)
 
+@login_required
 def add_planning(request, game_id):
   # create a ModelForm instance using the data in request.POST
   form = PlanningForm(request.POST)
@@ -61,24 +67,25 @@ def add_planning(request, game_id):
     new_planning.save()
   return redirect('detail', game_id=game_id)
 
-class EventList(ListView):
+class EventList(LoginRequiredMixin, ListView):
   model = Event
 
-class EventDetail(DetailView):
+class EventDetail(LoginRequiredMixin, DetailView):
   model = Event
 
-class EventCreate(CreateView):
+class EventCreate(LoginRequiredMixin, CreateView):
   model = Event
   fields = '__all__'
 
-class EventUpdate(UpdateView):
+class EventUpdate(LoginRequiredMixin, UpdateView):
   model = Event
   fields = ['name', 'date']
 
-class EventDelete(DeleteView):
+class EventDelete(LoginRequiredMixin, DeleteView):
   model = Event
   success_url = '/parties/'
 
+@login_required
 def add_photo(request, game_id):
   # photo-file will be the "name" attribute on the <input type="file">
   photo_file = request.FILES.get('photo-file', None)
