@@ -5,7 +5,7 @@ from django.contrib.auth import login
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
-from .forms import PlanningForm
+from .forms import PartyForm
 from django.http import HttpResponse, HttpResponseRedirect
 import uuid
 import boto3
@@ -29,13 +29,13 @@ def games_index(request):
 def games_detail(request, game_id):
   game = Game.objects.get(id=game_id)
   events_games_arent_played = Event.objects.exclude(id__in = game.events.all().values_list('id'))
-  planning_form = PlanningForm()
-  return render(request, 'games/detail.html', { 'game': game, 'planning_form': planning_form, 'events': events_games_arent_played })
+  party_form = PartyForm()
+  return render(request, 'games/detail.html', { 'game': game, 'party_form': party_form, 'events': events_games_arent_played })
   
 
 class GameCreate(LoginRequiredMixin, CreateView):
   model = Game
-  fields = ['name', 'description', 'instructions', 'materials', 'number', 'credit']
+  fields = ['name', 'description', 'instructions', 'materials', 'number']
 
   def form_valid(self, form):
     form.instance.user = self.request.user
@@ -43,7 +43,7 @@ class GameCreate(LoginRequiredMixin, CreateView):
 
 class GameUpdate(LoginRequiredMixin, UpdateView):
   model = Game
-  fields = ['name', 'description', 'materials', 'instructions', 'number', 'credit']
+  fields = ['name', 'description', 'materials', 'instructions', 'number']
 
 class GameDelete(LoginRequiredMixin, DeleteView):
   model = Game
@@ -55,12 +55,12 @@ def assoc_event(request, game_id, event_id):
   return redirect('detail', game_id=game_id)
 
 @login_required
-def add_planning(request, game_id):
-  form = PlanningForm(request.POST)
+def add_party(request, game_id):
+  form = PartyForm(request.POST)
   if form.is_valid():
-    new_planning = form.save(commit=False)
-    new_planning.game_id = game_id
-    new_planning.save()
+    new_party = form.save(commit=False)
+    new_party.game_id = game_id
+    new_party.save()
   return redirect('detail', game_id=game_id)
 
 class EventList(LoginRequiredMixin, ListView):

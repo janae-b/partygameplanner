@@ -37,20 +37,20 @@
     </form>
   </div>
   <div class="col s6">
-    <form action="{% url 'add_planning' game.id%}" method="post">
+    <form action="{% url 'add_party' game.id%}" method="post">
       {% csrf_token %}
-      {{ planning_form.as_p }}
-      <input type="submit" class="btn" value="Add Planning">
+      {{ party_form.as_p }}
+      <input type="submit" class="btn" value="Add Party">
     </form>
     <table class="striped">
       <thead>
-        <tr><th>Date</th><th>Planning Phase</th></tr>
+        <tr><th>Date</th><th>Party Phase</th></tr>
       </thead>
       <tbody>
-        {% for planning in game.planning_set.all %}
+        {% for party in game.party_set.all %}
           <tr>
-            <td>{{planning.date}}</td>
-            <td>{{planning.get_phase_display}}</td>
+            <td>{{party.date}}</td>
+            <td>{{party.get_phase_display}}</td>
           </tr>
         {% endfor %}
       </tbody>

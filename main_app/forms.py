@@ -1,7 +1,7 @@
 from django.forms import ModelForm
-from .models import Planning
+from .models import Party
 
-class PlanningForm(ModelForm):
+class PartyForm(ModelForm):
   class Meta:
-    model = Planning
+    model = Party
     fields = ['date', 'phase']

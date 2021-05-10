@@ -36,7 +36,7 @@ class Game(models.Model):
   def get_absolute_url(self):
       return reverse("detail", kwargs={"game_id": self.id})
 
-class Planning(models.Model):
+class Party(models.Model):
   date = models.DateField('complete date')
   phase = models.CharField(
     max_length=1,
