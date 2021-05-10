@@ -19,7 +19,7 @@ def about(request):
   return render(request, 'about.html')
 
 def games_index(request):
-  games = Game.objects.all()
+  games = Game.objects.filter(user=request.user)
   return render(request, 'games/index.html', { 'games': games })
 
 def games_detail(request, game_id):
@@ -30,7 +30,7 @@ def games_detail(request, game_id):
 
 class GameCreate(CreateView):
   model = Game
-  fields = '__all__'
+  fields = ['name', 'description', 'instructions', 'materials', 'number', 'credit']
 
   def form_valid(self, form):
     form.instance.user = self.request.user
