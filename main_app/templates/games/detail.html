@@ -50,7 +50,7 @@
         {% for party in game.party_set.all %}
           <tr>
             <td>{{ party.date }}</td>
-            <td>{{ party.phase }}</td>
+            <td>{{ party.name }}</td>
           </tr>
         {% endfor %}
       </tbody>

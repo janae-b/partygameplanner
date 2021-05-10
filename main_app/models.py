@@ -43,8 +43,8 @@ class Game(models.Model):
       return reverse("detail", kwargs={"game_id": self.id})
 
 class Party(models.Model):
-  date = models.DateField('complete date')
-  phase = models.CharField(
+  date = models.DateField('pick a date')
+  name = models.CharField('Party Name',
     max_length=150
     # choices=PHASES,
     # default=PHASES[0][0]
