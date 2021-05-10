@@ -43,6 +43,7 @@ class Planning(models.Model):
     choices=PHASES,
     default=PHASES[0][0]
   )
+  
   game = models.ForeignKey(Game, on_delete=models.CASCADE)  
 
   def __str__(self):

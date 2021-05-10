@@ -6,10 +6,10 @@ from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
 from .forms import PlanningForm
-from django.http import HttpResponse
+# from django.http import HttpResponse
 import uuid
 import boto3
-from .models import Game, Event
+from .models import Game, Event, Photo
 
 S3_BASE_URL = 'https://s3.us-east-2.amazonaws.com/'
 BUCKET = 'party-game-planner-jb'
@@ -42,7 +42,6 @@ class GameCreate(LoginRequiredMixin, CreateView):
 
 class GameUpdate(LoginRequiredMixin, UpdateView):
   model = Game
-  # Let's disallow the renaming of a cat by excluding the name field!
   fields = ['name', 'description', 'materials', 'instructions', 'number', 'credit']
 
 class GameDelete(LoginRequiredMixin, DeleteView):
@@ -51,7 +50,7 @@ class GameDelete(LoginRequiredMixin, DeleteView):
 
 @login_required
 def assoc_event(request, game_id, event_id):
-  Game.objects.get(id=game_id).parties.add(event_id)
+  Game.objects.get(id=game_id).events.add(event_id)
   return redirect('detail', game_id=game_id)
 
 @login_required
@@ -60,14 +59,13 @@ def add_planning(request, game_id):
   form = PlanningForm(request.POST)
   # validate the form
   if form.is_valid():
-    # don't save the form to the db until it
-    # has the cat_id assigned
     new_planning = form.save(commit=False)
     new_planning.game_id = game_id
     new_planning.save()
   return redirect('detail', game_id=game_id)
 
 class EventList(LoginRequiredMixin, ListView):
+  
   model = Event
 
 class EventDetail(LoginRequiredMixin, DetailView):
@@ -83,7 +81,7 @@ class EventUpdate(LoginRequiredMixin, UpdateView):
 
 class EventDelete(LoginRequiredMixin, DeleteView):
   model = Event
-  success_url = '/parties/'
+  success_url = '/events/'
 
 @login_required
 def add_photo(request, game_id):
