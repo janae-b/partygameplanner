@@ -9,7 +9,7 @@ from .forms import PartyForm
 from django.http import HttpResponse, HttpResponseRedirect
 import uuid
 import boto3
-from .models import Game, Event, Photo
+from .models import Game, Plan, Photo
 
 S3_BASE_URL = 'https://s3.us-east-2.amazonaws.com/'
 BUCKET = 'party-game-planner-jb'
@@ -28,9 +28,9 @@ def games_index(request):
 @login_required
 def games_detail(request, game_id):
   game = Game.objects.get(id=game_id)
-  events_games_arent_played = Event.objects.exclude(id__in = game.events.all().values_list('id'))
+  plans_games_arent_played = Plan.objects.exclude(id__in = game.plans.all().values_list('id'))
   party_form = PartyForm()
-  return render(request, 'games/detail.html', { 'game': game, 'party_form': party_form, 'events': events_games_arent_played })
+  return render(request, 'games/detail.html', { 'game': game, 'party_form': party_form, 'plans': plans_games_arent_played })
   
 
 class GameCreate(LoginRequiredMixin, CreateView):
@@ -50,8 +50,8 @@ class GameDelete(LoginRequiredMixin, DeleteView):
   success_url = '/games/'
 
 @login_required
-def assoc_event(request, game_id, event_id):
-  Game.objects.get(id=game_id).events.add(event_id)
+def assoc_plan(request, game_id, plan_id):
+  Game.objects.get(id=game_id).plans.add(plan_id)
   return redirect('detail', game_id=game_id)
 
 @login_required
@@ -63,23 +63,23 @@ def add_party(request, game_id):
     new_party.save()
   return redirect('detail', game_id=game_id)
 
-class EventList(LoginRequiredMixin, ListView):
-  model = Event
+class PlanList(LoginRequiredMixin, ListView):
+  model = Plan
 
-class EventDetail(LoginRequiredMixin, DetailView):
-  model = Event
+class PlanDetail(LoginRequiredMixin, DetailView):
+  model = Plan
 
-class EventCreate(LoginRequiredMixin, CreateView):
-  model = Event
+class PlanCreate(LoginRequiredMixin, CreateView):
+  model = Plan
   fields = '__all__'
 
-class EventUpdate(LoginRequiredMixin, UpdateView):
-  model = Event
+class PlanUpdate(LoginRequiredMixin, UpdateView):
+  model = Plan
   fields = ['name', 'date']
 
-class EventDelete(LoginRequiredMixin, DeleteView):
-  model = Event
-  success_url = '/events/'
+class PlanDelete(LoginRequiredMixin, DeleteView):
+  model = Plan
+  success_url = '/plans/'
 
 @login_required
 def add_photo(request, game_id):

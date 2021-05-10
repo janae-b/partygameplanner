@@ -9,7 +9,7 @@ from django.contrib.auth.models import User
 #       ('R', 'Ready to Play')
 # )
 
-class Event(models.Model):
+class Plan(models.Model):
   name = models.CharField(max_length=50)
   date = models.DateField('Date')
   
@@ -18,7 +18,7 @@ class Event(models.Model):
     return self.name
 
   def get_absolute_url(self):
-    return reverse("events_detail", kwargs={"pk": self.id})
+    return reverse("plans_detail", kwargs={"pk": self.id})
   
 
 class Game(models.Model):
@@ -26,14 +26,10 @@ class Game(models.Model):
   description = models.TextField(max_length=250, help_text="Enter a description of the game")
   instructions = models.TextField(max_length=250, 
   help_text="Enter your instructions", 
-  default=
-  """1.            
-2.                 
-3.                 
-   """)
+  default= '1. ')
   materials = models.CharField(max_length=100, help_text="Enter the materials you will need")
   number = models.IntegerField(default=5, help_text="Enter the number of people who can play")
-  events = models.ManyToManyField(Event)
+  plans = models.ManyToManyField(Plan)
   user = models.ForeignKey(User, on_delete=models.CASCADE)
 
   def __str__(self):
