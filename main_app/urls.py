@@ -10,6 +10,7 @@ urlpatterns = [
   path('games/<int:pk>/update/', views.GameUpdate.as_view(), name='games_update'),
   path('games/<int:pk>/delete/', views.GameDelete.as_view(), name='games_delete'),
   path('games/<int:game_id>/add_planning/', views.add_planning, name='add_planning'),
+  path('games/<int:game_id>/add_photo/', views.add_photo, name='add_photo'),
   path('games/<int:game_id>/assoc_event/<int:event_id>/', views.assoc_event, name='assoc_event'),
   path('events/<int:pk>/', views.EventDetail.as_view(), name='events_detail'),
   path('events/create/', views.EventCreate.as_view(), name='events_create'),
