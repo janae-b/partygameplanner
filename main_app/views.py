@@ -64,7 +64,6 @@ def add_planning(request, game_id):
   return redirect('detail', game_id=game_id)
 
 class EventList(LoginRequiredMixin, ListView):
-  
   model = Event
 
 class EventDetail(LoginRequiredMixin, DetailView):
