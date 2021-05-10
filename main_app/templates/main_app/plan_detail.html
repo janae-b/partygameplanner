@@ -1,14 +1,14 @@
 {% extends 'base.html' %}
 {% block content %}
 
-<h1>Plan Details</h1>
+<h1>Preparation Task Details</h1>
 
 <div class="row">
   <div class="col s6 col-offset-3">
     <div class="card">
       <div class="card-content">
         <span class="card-title">{{ plan.name }}</span>
-        <p>Date: {{ plan.step }}</p>
+        <p>Difficulty: {{ plan.difficulty }}</p>
       </div>
       <div class="card-action">
         <a href="{% url 'plans_update' plan.id %}">Edit</a>

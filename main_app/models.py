@@ -3,15 +3,18 @@ from django.urls import reverse
 from datetime import date
 from django.contrib.auth.models import User
 
-# PHASES = (
-#       ('M', 'Materials'),
-#       ('T', 'Test'),
-#       ('R', 'Ready to Play')
+# LEVEL = (
+#       ('E', 'Easy'),
+#       ('M', 'Medium'),
+#       ('H', 'Hard')
 # )
 
 class Plan(models.Model):
   name = models.CharField(max_length=50)
-  date = models.DateField('Date')
+  difficulty = models.CharField(max_length=150
+    # choices=LEVEL,
+    # default=LEVEL[0][0]
+    )
   
 
   def __str__(self):
@@ -57,6 +60,7 @@ class Party(models.Model):
 class Photo(models.Model):
   url = models.CharField(max_length=200)
   game = models.ForeignKey(Game, on_delete=models.CASCADE)
+
 
   def __str__(self):
       return f"Photo for game_id: {self.game_id} @{self.url}"

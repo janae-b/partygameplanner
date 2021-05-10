@@ -75,7 +75,7 @@ class PlanCreate(LoginRequiredMixin, CreateView):
 
 class PlanUpdate(LoginRequiredMixin, UpdateView):
   model = Plan
-  fields = ['name', 'date']
+  fields = ['name', 'difficulty']
 
 class PlanDelete(LoginRequiredMixin, DeleteView):
   model = Plan
@@ -95,6 +95,21 @@ def add_photo(request, game_id):
     except Exception as err:
       print('An error occurred uploading file to S3: %s' % err)
   return redirect('detail', game_id=game_id)
+
+@login_required
+def add_photo_plan(request, plan_id):
+  photo_file = request.FILES.get('photo-file', None)
+  if photo_file:
+    s3 = boto3.client('s3')
+    key = uuid.uuid4().hex[:6] + photo_file.name[photo_file.name.rfind('.'):]
+    try:
+      s3.upload_fileobj(photo_file, BUCKET, key)
+      url = f"{S3_BASE_URL}{BUCKET}/{key}"
+      photo = Photo(url=url, plan_id=plan_id)
+      photo.save()
+    except Exception as err:
+      print('An error occurred uploading file to S3: %s' % err)
+  return redirect('detail', plan_id=plan_id)
 
 def signup(request):
   error_message = ''
