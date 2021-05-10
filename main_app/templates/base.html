@@ -20,10 +20,15 @@
         </ul>
         <ul class="right">
           <li><a href="{% url 'about' %}">About</a></li>
-          <li><a href="{% url 'games_create' %}">Add a Game</a></li>
-          <li><a href="{% url 'index' %}">View All My Party Games</a></li>
-          <li><a href="{% url 'events_create' %}">Add an Event</a></li>
-          <li><a href="{% url 'events_index' %}">View All Events</a></li> 
+          {% if user.is_authenticated %}
+            <li><a href="{% url 'games_create' %}">Add a Game</a></li>
+            <li><a href="{% url 'index' %}">View All My Party Games</a></li>
+            <li><a href="{% url 'events_create' %}">Add an Event</a></li>
+            <li><a href="{% url 'events_index' %}">View All Events</a></li> 
+            <li><a href="{% url 'logout' %}">Log Out</a></li>
+          {% else %}
+            <li><a href="{% url 'login' %}">Log In</a></li>
+          {% endif %}
         </ul>
       </div>
     </nav>
