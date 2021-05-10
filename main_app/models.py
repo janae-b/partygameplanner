@@ -1,6 +1,7 @@
 from django.db import models
 from django.urls import reverse
 from datetime import date
+from django.contrib.auth.models import User
 
 PHASES = (
       ('M', 'Materials'),
@@ -27,6 +28,7 @@ class Game(models.Model):
   number = models.IntegerField()
   credit = models.URLField()
   events = models.ManyToManyField(Event)
+  user = models.ForeignKey(User, on_delete=models.CASCADE)
 
   def __str__(self):
     return self.name

@@ -40,7 +40,7 @@ class GameDelete(DeleteView):
   success_url = '/games/'
 
 def assoc_event(request, game_id, event_id):
-  Game.objects.get(id=game_id).events.add(event_id)
+  Game.objects.get(id=game_id).parties.add(event_id)
   return redirect('detail', game_id=game_id)
 
 def add_planning(request, game_id):
@@ -71,7 +71,7 @@ class EventUpdate(UpdateView):
 
 class EventDelete(DeleteView):
   model = Event
-  success_url = '/events/'
+  success_url = '/parties/'
 
 def add_photo(request, game_id):
   # photo-file will be the "name" attribute on the <input type="file">
