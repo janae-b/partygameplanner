@@ -49,8 +49,8 @@
       <tbody>
         {% for party in game.party_set.all %}
           <tr>
-            <td>{{party.date}}</td>
-            <td>{{party.get_phase_display}}</td>
+            <td>{{ party.date }}</td>
+            <td>{{ party.phase }}</td>
           </tr>
         {% endfor %}
       </tbody>
@@ -107,8 +107,6 @@
     setDefaultDate: true,
     autoClose: true
   });
-  var selectEl = document.getElementById('id_phase');
-  M.FormSelect.init(selectEl);
 </script>
 {% endblock %}
 
