@@ -24,7 +24,10 @@ class Event(models.Model):
 class Game(models.Model):
   name = models.CharField(max_length=100, help_text="Enter the name")
   description = models.TextField(max_length=250)
-  instructions = models.TextField(max_length=250)
+  instructions = models.TextField(max_length=250, 
+  default="1.            "
+   "2.                 "
+   "3.                 ")
   materials = models.CharField(max_length=100)
   number = models.IntegerField()
   events = models.ManyToManyField(Event)
