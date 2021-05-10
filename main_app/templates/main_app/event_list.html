@@ -1,14 +1,14 @@
 {% extends 'base.html' %}
 {% block content %}
 
-<h1>Event List</h1>
+<h1>Event Steps</h1>
 
 {% for event in event_list %}
   <a href="{% url 'events_detail' event.id %}">
     <div class="card">
         <div class="card-content">
             <span class="card-title">{{ event.name }}</span>
-            <p>Date: {{ event.date }}</p>
+            <p>Date: {{ event.step }}</p>
         </div>
     </div>
   </a>

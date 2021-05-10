@@ -11,7 +11,7 @@ from django.contrib.auth.models import User
 
 class Event(models.Model):
   name = models.CharField(max_length=50)
-  date = models.DateField('complete date')
+  date = models.DateField('Date')
   
 
   def __str__(self):
