@@ -26,7 +26,7 @@ class Game(models.Model):
   instructions = models.TextField(max_length=250)
   materials = models.CharField(max_length=100)
   number = models.IntegerField()
-  credit = models.URLField()
+  credit = models.CharField(max_length=50)
   events = models.ManyToManyField(Event)
   user = models.ForeignKey(User, on_delete=models.CASCADE)
 
