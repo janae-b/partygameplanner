@@ -12,6 +12,7 @@ PHASES = (
 class Event(models.Model):
   name = models.CharField(max_length=50)
   date = models.DateField('complete date')
+  
 
   def __str__(self):
     return self.name
@@ -43,7 +44,7 @@ class Planning(models.Model):
     choices=PHASES,
     default=PHASES[0][0]
   )
-  
+
   game = models.ForeignKey(Game, on_delete=models.CASCADE)  
 
   def __str__(self):

@@ -6,7 +6,7 @@ from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
 from .forms import PlanningForm
-# from django.http import HttpResponse
+from django.http import HttpResponse, HttpResponseRedirect
 import uuid
 import boto3
 from .models import Game, Event, Photo
@@ -31,6 +31,7 @@ def games_detail(request, game_id):
   events_games_arent_played = Event.objects.exclude(id__in = game.events.all().values_list('id'))
   planning_form = PlanningForm()
   return render(request, 'games/detail.html', { 'game': game, 'planning_form': planning_form, 'events': events_games_arent_played })
+  
 
 class GameCreate(LoginRequiredMixin, CreateView):
   model = Game
@@ -55,9 +56,7 @@ def assoc_event(request, game_id, event_id):
 
 @login_required
 def add_planning(request, game_id):
-  # create a ModelForm instance using the data in request.POST
   form = PlanningForm(request.POST)
-  # validate the form
   if form.is_valid():
     new_planning = form.save(commit=False)
     new_planning.game_id = game_id
@@ -85,7 +84,6 @@ class EventDelete(LoginRequiredMixin, DeleteView):
 
 @login_required
 def add_photo(request, game_id):
-  # photo-file will be the "name" attribute on the <input type="file">
   photo_file = request.FILES.get('photo-file', None)
   if photo_file:
     s3 = boto3.client('s3')
@@ -102,18 +100,13 @@ def add_photo(request, game_id):
 def signup(request):
   error_message = ''
   if request.method == 'POST':
-    # This is how to create a 'user' form object
-    # that includes the data from the browser
     form = UserCreationForm(request.POST)
     if form.is_valid():
-      # This will add the user to the database
       user = form.save()
-      # This is how we log a user in via code
       login(request, user)
       return redirect('index')
     else:
       error_message = 'Invalid sign up - try again'
-  # A bad POST or a GET request, so render signup.html with an empty form
   form = UserCreationForm()
   context = {'form': form, 'error_message': error_message}
   return render(request, 'registration/signup.html', context)
