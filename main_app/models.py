@@ -17,7 +17,6 @@ EMOJIS = (
 
 class Plan(models.Model):
   name = models.CharField(max_length=50)
-  difficulty = models.CharField(max_length=150)
   emoji = models.CharField(max_length=1,
     choices=EMOJIS,
     default=EMOJIS[0][0]

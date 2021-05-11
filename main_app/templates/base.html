@@ -23,8 +23,8 @@
           {% if user.is_authenticated %}
             <li><a href="{% url 'games_create' %}">Add a Game</a></li>
             <li><a href="{% url 'index' %}">View All My Party Games</a></li>
-            <li><a href="{% url 'plans_create' %}">Add an Plan</a></li>
-            <li><a href="{% url 'plans_index' %}">View All Plans</a></li> 
+            <li><a href="{% url 'plans_create' %}">Add a Task</a></li>
+            <li><a href="{% url 'plans_index' %}">View Available Tasks</a></li> 
             <li><a href="{% url 'logout' %}">Log Out</a></li>
           {% else %}
             <li><a href="{% url 'signup' %}">Sign Up</a></li>

@@ -75,7 +75,7 @@ class PlanCreate(LoginRequiredMixin, CreateView):
 
 class PlanUpdate(LoginRequiredMixin, UpdateView):
   model = Plan
-  fields = ['name', 'difficulty']
+  fields = ['name', 'emoji']
 
 class PlanDelete(LoginRequiredMixin, DeleteView):
   model = Plan
