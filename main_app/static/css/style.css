@@ -2,7 +2,7 @@ body {
   display: flex;
   min-height: 100vh;
   flex-direction: column;
-  background-color: lightcyan;
+  background-image: linear-gradient(to right top, #b0a8b9, #d8a1b8, #f99e90, #ecb15b, #a6cf4c);
 }
 
 main {
@@ -12,4 +12,5 @@ main {
 footer.page-footer {
   padding-top: 0;
   text-align: right;
+  background-color: lightseagreen;
 }
