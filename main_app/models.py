@@ -3,22 +3,29 @@ from django.urls import reverse
 from datetime import date
 from django.contrib.auth.models import User
 
-# LEVEL = (
-#       ('E', 'Easy'),
-#       ('M', 'Medium'),
-#       ('H', 'Hard')
-# )
+EMOJIS = (
+      ('A', '🍬'),
+      ('Y', '🧶'),
+      ('M', '🧵'),
+      ('H', '✂️'),
+      ('C', '🖍️'),
+      ('S', '🧷'),
+      ('P', '🪅'),
+      ('B', '🎂'),
+      ('T', '🎊'),
+)
 
 class Plan(models.Model):
   name = models.CharField(max_length=50)
-  difficulty = models.CharField(max_length=150
-    # choices=LEVEL,
-    # default=LEVEL[0][0]
-    )
-  
+  difficulty = models.CharField(max_length=150)
+  emoji = models.CharField(max_length=1,
+    choices=EMOJIS,
+    default=EMOJIS[0][0]
+  )
+
 
   def __str__(self):
-    return self.name
+    return f"{self.get_emoji_display()} on {self.emoji}"
 
   def get_absolute_url(self):
     return reverse("plans_detail", kwargs={"pk": self.id})
