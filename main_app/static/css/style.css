@@ -57,9 +57,7 @@ html {
   transform:translate(-50%, -50%);
 }
 
-h1 {
-  font-family:monospace;
-}
+
 
 @keyframes slide {
   0% {
