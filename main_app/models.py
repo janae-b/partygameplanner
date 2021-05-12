@@ -40,7 +40,10 @@ class Game(models.Model):
   description = models.TextField(max_length=250, help_text="Enter a description of the game")
   instructions = models.TextField(max_length=250, 
   help_text="Enter your instructions", 
-  default= '1. ')
+  default= '''1.
+2.
+3.
+4. ''')
   materials = models.CharField(max_length=100, help_text="Enter the materials you will need")
   number = models.IntegerField(default=5, help_text="Enter the number of people who can play")
   plans = models.ManyToManyField(Plan)
