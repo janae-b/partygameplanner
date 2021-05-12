@@ -11,6 +11,7 @@
         <p>Description: {{ game.description }}</p>
         <p>Instructions: {{ game.instructions }}</p>
         <p>Materials: {{ game.materials }}</p>
+        <p>Where you play: {{ game.get_where_display }}</p>
         {% if game.number > 0 %}
           <p>Number of People {{ game.number }}</p>
         {% else %}
@@ -18,8 +19,8 @@
         {% endif %}
       </div>
       <div class="card-action">
-        <a href="{% url 'games_update' game.id %}">Edit</a>
-        <a href="{% url 'games_delete' game.id %}">Delete</a>
+        <a href="{% url 'games_update' game.id %}">Edit Game</a>
+        <a href="{% url 'games_delete' game.id %}">Delete Game</a>
       </div>
     </div>
     {% for photo in game.photo_set.all %}

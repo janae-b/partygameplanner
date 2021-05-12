@@ -65,6 +65,9 @@ class Game(models.Model):
   def get_absolute_url(self):
       return reverse("detail", kwargs={"game_id": self.id})
 
+  def __str__(self):
+    return f"{self.get_where_display()} on {self.where}"
+
 class Party(models.Model):
   date = models.DateField('Party Date')
   name = models.CharField('Party Name',
