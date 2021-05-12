@@ -13,7 +13,7 @@
         <p>Materials: {{ game.materials }}</p>
         <p>Where you play: {{ game.get_where_display }}</p>
         {% if game.number > 0 %}
-          <p>Number of People {{ game.number }}</p>
+          <p>Number of People: {{ game.number }}</p>
         {% else %}
           <p>Number of People: However many you want</p>
         {% endif %}

@@ -20,27 +20,5 @@
   </div>
 </div>
 {% endfor %}
-{% comment %} 
-{% for game in games %}
-  <div class="card">
-    <a href="{% url 'detail' game.id %}">
-      <div class="card-content">
-        <span class="card-title">{{ game.name }}</span>
-    </a> 
-        <p>Description: {{ game.description }}</p>
-        <p>Materials: {{ game.materials }}</p>
-        {% for photo in game.photo_set.all %}
-          <img class="responsive-img card-panel" src="{{photo.url}}">
-        {% empty %}
-          {% comment %} <div class="card-panel teal-text center-align">No Photos Uploaded</div> {% endcomment %}
-        {% comment %} {% endfor %}
-        {% if game.number > 0 %}
-          <p>Number of People: {{ game.number }}</p>
-        {% else %}
-          <p>Number: Who knows?</p>
-        {% endif %}
-      </div>
-  </div>
-{% endfor %}  {% endcomment %}
 
 {% endblock %}
