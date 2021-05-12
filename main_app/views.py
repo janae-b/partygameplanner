@@ -35,7 +35,7 @@ def games_detail(request, game_id):
 
 class GameCreate(LoginRequiredMixin, CreateView):
   model = Game
-  fields = ['name', 'description', 'instructions', 'materials', 'number']
+  fields = ['name', 'description', 'materials', 'instructions', 'where', 'number']
 
   def form_valid(self, form):
     form.instance.user = self.request.user
@@ -43,7 +43,7 @@ class GameCreate(LoginRequiredMixin, CreateView):
 
 class GameUpdate(LoginRequiredMixin, UpdateView):
   model = Game
-  fields = ['name', 'description', 'materials', 'instructions', 'number']
+  fields = ['name', 'description', 'materials', 'instructions', 'where', 'number']
 
 class GameDelete(LoginRequiredMixin, DeleteView):
   model = Game

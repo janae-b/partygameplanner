@@ -20,6 +20,13 @@ EMOJIS = (
       ('4', '🎈')
 )
 
+WHERE = (
+  ('O', 'Outdoors'),
+  ('I', 'Indoors'),
+  ('B', 'Both'),
+  ('V', 'Virtual')
+)
+
 class Plan(models.Model):
   name = models.CharField(max_length=50)
   emoji = models.CharField(max_length=1,
@@ -46,6 +53,9 @@ class Game(models.Model):
 4. ''')
   materials = models.CharField(max_length=100, help_text="Enter the materials you will need")
   number = models.IntegerField(default=5, help_text="Enter the number of people who can play")
+  where = models.CharField(max_length=1,
+    choices=WHERE,
+    default=WHERE[0][0])
   plans = models.ManyToManyField(Plan)
   user = models.ForeignKey(User, on_delete=models.CASCADE)
 
