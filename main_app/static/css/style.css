@@ -1,5 +1,6 @@
 body {
   display: flex;
+  font-family: 'Bitter', serif;
   min-height: 100vh;
   flex-direction: column;
   background-image: linear-gradient(to right top, #b0a8b9, #d8a1b8, #f99e90, #ecb15b, #a6cf4c);
