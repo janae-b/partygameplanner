@@ -11,6 +11,11 @@
     </a> 
         <p>Description: {{ game.description }}</p>
         <p>Materials: {{ game.materials }}</p>
+        {% for photo in game.photo_set.all %}
+          <img class="responsive-img card-panel" src="{{photo.url}}">
+        {% empty %}
+          {% comment %} <div class="card-panel teal-text center-align">No Photos Uploaded</div> {% endcomment %}
+        {% endfor %}
         {% if game.number > 0 %}
           <p>Number of People: {{ game.number }}</p>
         {% else %}
