@@ -8,19 +8,19 @@
     <div class="card">
       <div class="card-content">
         <h1 class="card-title">{{ game.name }}</h1>
-        <h4>Description: {{ game.description }}</h4>
-        <p>Instructions: {{ game.instructions }}</p>
-        <p>Materials: {{ game.materials }}</p>
-        <p>Where you play: {{ game.get_where_display }}</p>
+        <h4> {{ game.description }}</h4>
+        <p><strong>Instructions:</strong> {{ game.instructions }}</p>
+        <p><strong>Materials:</strong> {{ game.materials }}</p>
+        <p><strong>Where you play:</strong> {{ game.get_where_display }}</p>
         {% if game.number > 0 %}
-          <p>Number of People: {{ game.number }}</p>
+          <p><strong>Number of People:</strong> {{ game.number }}</p>
         {% else %}
-          <p>Number of People: However many you want</p>
+          <p><strong>Number of People:</strong> However many you want</p>
         {% endif %}
       </div>
       <div class="card-action">
-        <a class="btn btn-light" href="{% url 'games_update' game.id %}">Edit Game</a>
-        <a class="btn btn-light" href="{% url 'games_delete' game.id %}">Delete Game</a>
+        <a class="btn btn-light game-detail-button" href="{% url 'games_update' game.id %}">Edit Game</a>
+        <a class="btn btn-light game-detail-button" href="{% url 'games_delete' game.id %}">Delete Game</a>
       </div>
     </div>
     {% for photo in game.photo_set.all %}
