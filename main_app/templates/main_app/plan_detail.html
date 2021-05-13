@@ -5,14 +5,15 @@
 
 <div class="row">
   <div class="col s6 col-offset-3">
-    <div class="card">
-      <div class="card-content">
-        <span class="card-title">{{ plan.name }}</span>
-        <p>{{ plan.get_emoji_display }}</p>
+    <div class="card-task">
+      <div class="card-task-content">
+        {% comment %} <span class="card-title">{{ plan.name }}</span> {% endcomment %}
+        <p>{{ plan.name }} </p>
+        <p>{{ plan.get_emoji_display }}</p> 
       </div>
       <div class="card-action">
-        <a href="{% url 'plans_update' plan.id %}">Edit</a>
-        <a href="{% url 'plans_delete' plan.id %}">Delete</a>
+        <a class="btn btn-warning" href="{% url 'plans_update' plan.id %}">Edit</a>
+        <a class="btn btn-danger" href="{% url 'plans_delete' plan.id %}">Delete</a>
       </div>
     </div>
   </div>

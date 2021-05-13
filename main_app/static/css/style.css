@@ -23,6 +23,27 @@ html {
   height:100%;
 }
 
+.card-task {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-content: space-around;
+  justify-content: center;
+  border-radius: 42px;
+  background: linear-gradient(145deg, #96d4b1, #b3fdd3);
+  box-shadow:  17px 17px 31px #72a086;
+              /* -17px -17px 100px #dcffff; */
+  text-align: center;
+  min-width: 10rem;
+  max-width: 20rem;
+  margin: 20px;
+  padding: 10px;
+}
+
+.card-task-content {
+  font-size: 2.5rem;
+}
+
 .bg {
   animation:slide 3s ease-in-out infinite alternate;
   background-image: linear-gradient(-60deg, #6c3 50%, #09f 50%);

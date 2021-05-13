@@ -10,12 +10,7 @@
     {% csrf_token %}
     <table>
       {{ form.as_table }}
-  <script>
-  // add additional JS to initialize select below
-  var selectEl = document.getElementById('id_emoji');
-  M.FormSelect.init(selectEl);
-</script>
     </table>
-    <input type="submit" value="Submit!" class="btn">
+    <input type="submit" value="Add Task" class="btn btn-warning">
   </form>
 {% endblock %} 

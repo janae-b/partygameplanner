@@ -5,8 +5,8 @@
 
 {% for plan in plan_list %}
   <a href="{% url 'plans_detail' plan.id %}">
-    <div class="card">
-        <div class="card-content">
+    <div class="card-task">
+        <div class="card-task-content">
             <span class="card-title">{{ plan.name }}</span>
             <p>{{ plan.get_emoji_display }}</p>
         </div>
