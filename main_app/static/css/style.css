@@ -6,6 +6,7 @@ body {
   margin: 0; 
   background-image: linear-gradient(to bottom, #08b828, #38bf45, #52c55e, #68cb74, #7dd189, #7dd189, #7dd189, #7dd189, #68cb74, #52c55e, #38bf45, #08b828);
   background-size: cover;
+  background-image: url;
 }
 
 /* .navbar {
@@ -69,6 +70,11 @@ html {
   padding: 20%;
 }
 
+.navbar-brand {
+  margin-top: 1%;
+  font-size: 1.2rem;
+}
+
 .party-card {
   background: lightgoldenrodyellow;
   height:fit-content;
@@ -113,7 +119,10 @@ html {
   align-content: space-around;
   justify-content: center;
   border-radius: 42px;
-  background: linear-gradient(145deg, #96d4b1, #b3fdd3);  
+  border-radius: 42px;
+  background: linear-gradient(145deg, #2bc2d6, #24a3b4);
+  box-shadow:  17px 17px 0px #1b7b88,
+              -17px -17px 0px #35efff; 
   text-align: center;
   min-width: 10rem;
   max-width: 20rem;

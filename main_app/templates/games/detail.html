@@ -91,7 +91,7 @@
           <div class="card-action">
             <form action="{% url 'assoc_plan' game.id plan.id %}" method="post">
               {% csrf_token %}
-              <button type="submit" class="btn btn-warning">Add</button>
+              <button type="submit" class="btn btn-warning"><i class="fas fa-check"></i></button>
             </form>
           </div>
         </div>
