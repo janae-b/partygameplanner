@@ -60,6 +60,11 @@ html {
   height:100%;
 }
 
+.task-table {
+  font-size: larger;
+  justify-content: space-around
+}
+
 .game-detail-button{
   margin-left: 9%
 }

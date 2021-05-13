@@ -66,7 +66,7 @@ class Game(models.Model):
     return f"{self.get_where_display()} on {self.where}"
 
 class Party(models.Model):
-  date = models.DateField('Party Date')
+  date = models.DateField('Party Date', default=date.today)
   name = models.CharField('Party Name',
     max_length=150
   )
