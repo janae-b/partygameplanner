@@ -4,18 +4,23 @@
 <h1>Game List</h1>
 
 {% for game in games %}
-<div class="row row-cols-1 row-cols-md-2 g-4">
-  <div class="col">
-    <div class="card">
+{% comment %} <div class="row row-cols-1 row-cols-md-2 g-4">
+  <div class="col"> {% endcomment %}
+<div class="row">
+  <div class="col-sm-6">
+    <div class="card text-center" style="width: 18rem;">
       <div class="card-body">
-        <h5 class="card-title">{{ game.name }}</h5>
+        <h3 class="card-title">{{ game.name }}</h3>
         <p class="card-text">{{ game.description }}</p>
       </div>
       <ul class="list-group list-group-flush">
-        <li class="list-group-item">{{ game.materials }}</li>
-        <li class="list-group-item">{{ game.where }}</li>
-        <li class="list-group-item">{{ game.number }}</li>
+        <li class="list-group-item"><strong>Materials: </strong>{{ game.materials }}</li>
+        <li class="list-group-item">Where to play: {{ game.get_where_display }}</li>
+        <li class="list-group-item">How many people: {{ game.number }}</li>
+      </ul>
+      <div class="card-body">
             <a href="{% url 'detail' game.id %}" class="btn btn-primary">Game Details</a>
+      </div>
     </div>
   </div>
 </div>
