@@ -40,8 +40,8 @@ h4 {
 }
 
 table {
-  margin: 35px;
-  padding: 50px;
+
+  margin-top: 20px;
   justify-content: center;
   margin-bottom: 50px;
   font-size: larger;
@@ -123,9 +123,7 @@ html {
   box-shadow:  17px 17px 0px #1b7b88,
               -17px -17px 0px #35efff;  */
   border-radius: 42px;
-  background: linear-gradient(145deg, #6dc842, #5ca838);
-  box-shadow:  17px 17px 0px #457f2a,
-              -17px -17px 0px #87f752;
+  background: linear-gradient(145deg, #6dc842, #5ca838);           
   text-align: center;
   min-width: 10rem;
   max-width: 20rem;
