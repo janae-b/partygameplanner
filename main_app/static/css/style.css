@@ -81,13 +81,10 @@ html {
 }
 
 .photo-card {
-  background: #2193b0;  
-  background: -webkit-linear-gradient(to right, #6dd5ed, #2193b0);  
-  background: linear-gradient(to right, #6dd5ed, #2193b0);
-  border-radius: 5%;
+  background-color: linen;
+  border-radius: 3%;
   border-color: lemonchiffon;
-  border-width: .4rem;
-  padding: 5%;
+  padding: 3%;
   margin-bottom: 5%;
 }
 
