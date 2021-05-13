@@ -44,16 +44,12 @@ class Plan(models.Model):
   
 
 class Game(models.Model):
-  name = models.CharField(max_length=100, help_text="Enter the name")
-  description = models.TextField(max_length=250, help_text="Enter a description of the game")
-  instructions = models.TextField(max_length=350, 
-  help_text="Enter your instructions", 
-  default= '''1.
-2.
-3.
-4. ''')
-  materials = models.CharField(max_length=100, help_text="Enter the materials you will need")
-  number = models.IntegerField(default=5, help_text="Enter the number of people who can play")
+  name = models.CharField(max_length=100)
+  description = models.TextField(max_length=250)
+  instructions = models.TextField(max_length=350,  
+  default= '1.')
+  materials = models.CharField(max_length=100)
+  number = models.IntegerField(default=5)
   where = models.CharField(max_length=1,
     choices=WHERE,
     default=WHERE[0][0])

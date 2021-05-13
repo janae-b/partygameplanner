@@ -7,8 +7,8 @@
   <div class="col s6">
     <div class="card">
       <div class="card-content">
-        <span class="card-title">{{ game.name }}</span>
-        <p>Description: {{ game.description }}</p>
+        <h1 class="card-title">{{ game.name }}</h1>
+        <h4>Description: {{ game.description }}</h4>
         <p>Instructions: {{ game.instructions }}</p>
         <p>Materials: {{ game.materials }}</p>
         <p>Where you play: {{ game.get_where_display }}</p>
@@ -19,8 +19,8 @@
         {% endif %}
       </div>
       <div class="card-action">
-        <a href="{% url 'games_update' game.id %}">Edit Game</a>
-        <a href="{% url 'games_delete' game.id %}">Delete Game</a>
+        <a class="btn btn-light" href="{% url 'games_update' game.id %}">Edit Game</a>
+        <a class="btn btn-light" href="{% url 'games_delete' game.id %}">Delete Game</a>
       </div>
     </div>
     {% for photo in game.photo_set.all %}
@@ -39,7 +39,7 @@
     <form action="{% url 'add_party' game.id%}" method="post">
       {% csrf_token %}
       {{ party_form.as_p }}
-      <input type="submit" class="btn" value="Add Party">
+      <input type="submit" class="btn btn-warning" value="Add Party">
     </form>
     <table class="striped">
       <thead>
@@ -67,7 +67,7 @@
             <span class="card-title">
               {{ plan.name }}
               {{ plan.get_emoji_display }}
-               </span>
+              </span>
             </span>
           </div>
         </div>
@@ -101,14 +101,6 @@
     {% endif %}
   </div>
 </div>
-<script>
-  var dateEl = document.getElementById('id_date');
-  M.Datepicker.init(dateEl, {
-    format: 'yyyy-mm-dd',
-    defaultDate: new Date(),
-    setDefaultDate: true,
-    autoClose: true
-  });
-</script>
+
 {% endblock %}
 

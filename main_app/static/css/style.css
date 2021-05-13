@@ -3,10 +3,9 @@ body {
   font-family: 'Bitter', serif;
   min-height: 100vh;
   flex-direction: column;
-  margin: 0; */
-  background: #2193b0;  
-  background: -webkit-linear-gradient(to right, #6dd5ed, #2193b0);  
-  background: linear-gradient(to right, #6dd5ed, #2193b0); 
+  margin: 0; 
+  background-image: linear-gradient(to bottom, #08b828, #38bf45, #52c55e, #68cb74, #7dd189, #7dd189, #7dd189, #7dd189, #68cb74, #52c55e, #38bf45, #08b828);
+  background-size: cover;
 }
 
 /* .navbar {
@@ -40,6 +39,13 @@ h1 {
   margin-bottom: 4%;
 }
 
+table {
+  margin: 10px;
+  padding: 50px;
+  justify-content: center;
+  margin-bottom: 50px;;
+}
+
 html {
   height:100%;
 }
@@ -48,6 +54,27 @@ html {
   margin-top: 20%;
   margin-bottom: 20%;
   padding: 20%;
+}
+
+.card {
+  background: #2193b0;  
+  background: -webkit-linear-gradient(to right, #6dd5ed, #2193b0);  
+  background: linear-gradient(to right, #6dd5ed, #2193b0);
+  border-radius: 5%;
+  border-color: lemonchiffon;
+  border-width: .4rem;
+  padding: 5%;
+}
+
+.card-game-detail {
+  background: #2193b0;  
+  background: -webkit-linear-gradient(to right, #6dd5ed, #2193b0);  
+  background: linear-gradient(to right, #6dd5ed, #2193b0); 
+  padding: 5%;
+  margin-bottom: 2%;
+  border-radius: 2%;
+  border-color: lemonchiffon;
+  border-width: .2rem;
 }
 
 .card-task {
