@@ -3,10 +3,8 @@ body {
   font-family: 'Bitter', serif;
   min-height: 100vh;
   flex-direction: column;
-  margin: 0; 
-  background-image: linear-gradient(to bottom, #08b828, #38bf45, #52c55e, #68cb74, #7dd189, #7dd189, #7dd189, #7dd189, #68cb74, #52c55e, #38bf45, #08b828);
-  background-size: cover;
-  background-image: url;
+  background-image: linear-gradient(to right, #068fd0, #0099ce, #00a2c8, #00aabf, #00b1b4, #00b5aa, #00b89d, #00ba8d, #00ba7b, #00ba65, #00b94b, #08b828);
+  background-position: center;
 }
 
 /* .navbar {
@@ -77,7 +75,7 @@ html {
 
 .navbar-brand {
   margin-top: 1%;
-  font-size: 1.2rem;
+  font-size: 1.5rem;
 }
 
 .party-card {
@@ -123,11 +121,14 @@ html {
   flex-wrap: wrap;
   align-content: space-around;
   justify-content: center;
-  border-radius: 42px;
-  border-radius: 42px;
+  /* border-radius: 42px;
   background: linear-gradient(145deg, #2bc2d6, #24a3b4);
   box-shadow:  17px 17px 0px #1b7b88,
-              -17px -17px 0px #35efff; 
+              -17px -17px 0px #35efff;  */
+  border-radius: 42px;
+  background: linear-gradient(145deg, #6dc842, #5ca838);
+  box-shadow:  17px 17px 0px #457f2a,
+              -17px -17px 0px #87f752;
   text-align: center;
   min-width: 10rem;
   max-width: 20rem;
@@ -176,6 +177,7 @@ html {
   top:50%;
   transform:translate(-50%, -50%);
 }
+
 
 #game-list-body {
   display: flex;

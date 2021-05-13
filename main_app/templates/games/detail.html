@@ -19,20 +19,20 @@
         {% endif %}
       </div>
       <div class="card-action">
-        <a class="btn btn-light game-detail-button" href="{% url 'games_update' game.id %}">Edit Game</a>
-        <a class="btn btn-light game-detail-button" href="{% url 'games_delete' game.id %}">Delete Game</a>
+        <a class="btn btn-light game-detail-button" style="background-color:lemonchiffon" href="{% url 'games_update' game.id %}">Edit Game</a>
+        <a class="btn btn-light game-detail-button" style="background-color:lemonchiffon"  href="{% url 'games_delete' game.id %}">Delete Game</a>
       </div>
     </div class=photo-card>
     {% for photo in game.photo_set.all %}
       <img class="photo-card" src="{{photo.url}}">
     {% empty %}
-      <div class="card-panel teal-text center-align">No Photos Uploaded</div>
+      <div class="card-panel">No Photos Uploaded</div>
     {% endfor %}
     <form action="{% url 'add_photo' game.id %}" enctype="multipart/form-data" method="POST" class="card-panel">
       {% csrf_token %}
       <input type="file" name="photo-file">
       <br><br>
-      <input class="btn btn-light" type="submit" value="Upload Photo">
+      <input class="btn btn-light" style="background-color:lemonchiffon" type="submit" value="Upload Photo">
     </form>
   </div>
   <div class="col s6 party-card">
