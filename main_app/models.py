@@ -46,8 +46,7 @@ class Plan(models.Model):
 class Game(models.Model):
   name = models.CharField(max_length=100)
   description = models.TextField(max_length=250)
-  instructions = models.TextField(max_length=350,  
-  default= '1.')
+  instructions = models.TextField(max_length=350)
   materials = models.CharField(max_length=100)
   number = models.IntegerField(default=5)
   where = models.CharField(max_length=1,
