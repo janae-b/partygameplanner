@@ -5,8 +5,8 @@ from django.contrib.auth.models import User
 
 EMOJIS = (
       ('A', '🍬'),
-      ('Y', '🧶'),
-      ('M', '🧵'),
+      ('Y', '🎲'),
+      ('M', '🔮'),
       ('H', '🎩'),
       ('P', '🥳'),
       ('R', '🙌'),
@@ -17,7 +17,8 @@ EMOJIS = (
       ('1', '👾'),
       ('2', '😎'),
       ('3', '🥸'),
-      ('4', '🎈')
+      ('4', '🎈'),
+      ('5', '🎁')
 )
 
 WHERE = (
@@ -45,7 +46,7 @@ class Plan(models.Model):
 class Game(models.Model):
   name = models.CharField(max_length=100, help_text="Enter the name")
   description = models.TextField(max_length=250, help_text="Enter a description of the game")
-  instructions = models.TextField(max_length=250, 
+  instructions = models.TextField(max_length=350, 
   help_text="Enter your instructions", 
   default= '''1.
 2.
@@ -72,8 +73,6 @@ class Party(models.Model):
   date = models.DateField('Party Date')
   name = models.CharField('Party Name',
     max_length=150
-    # choices=PHASES,
-    # default=PHASES[0][0]
   )
 
   game = models.ForeignKey(Game, on_delete=models.CASCADE)  
