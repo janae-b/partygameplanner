@@ -60,13 +60,20 @@ html {
 }
 
 .game-detail-button{
-  margin-left: 14%
+  margin-left: 9%
 }
 
 .form {
   margin-top: 20%;
   margin-bottom: 20%;
   padding: 20%;
+}
+
+.party-card {
+  background: lightgoldenrodyellow;
+  height:fit-content;
+  margin-top: 5%;
+  padding: 3%;
 }
 
 .card {
