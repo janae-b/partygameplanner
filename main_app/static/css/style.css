@@ -76,6 +76,17 @@ html {
   border-radius: 5%;
   border-color: lemonchiffon;
   border-width: .4rem;
+  padding: 10%;
+  margin-bottom: 5%;
+}
+
+.photo-card {
+  background: #2193b0;  
+  background: -webkit-linear-gradient(to right, #6dd5ed, #2193b0);  
+  background: linear-gradient(to right, #6dd5ed, #2193b0);
+  border-radius: 5%;
+  border-color: lemonchiffon;
+  border-width: .4rem;
   padding: 5%;
   margin-bottom: 5%;
 }
@@ -98,8 +109,7 @@ html {
   align-content: space-around;
   justify-content: center;
   border-radius: 42px;
-  background: linear-gradient(145deg, #96d4b1, #b3fdd3);
-  box-shadow:  17px 17px 31px #72a086;  
+  background: linear-gradient(145deg, #96d4b1, #b3fdd3);  
   text-align: center;
   min-width: 10rem;
   max-width: 20rem;
@@ -109,6 +119,10 @@ html {
 
 .card-task-content {
   font-size: 2.5rem;
+}
+
+.card-action {
+  margin: 5%;
 }
 
 .bg {
