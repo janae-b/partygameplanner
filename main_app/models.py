@@ -19,7 +19,8 @@ EMOJIS = (
       ('3', '🥸'),
       ('4', '🎈'),
       ('5', '🎁'),
-      ('6', '👑')
+      ('6', '👑'),
+      ('7', '📝')
 )
 
 WHERE = (
@@ -45,12 +46,12 @@ class Plan(models.Model):
   
 
 class Game(models.Model):
-  name = models.CharField(max_length=100)
-  description = models.TextField(max_length=250)
-  instructions = models.TextField(max_length=350)
-  materials = models.CharField(max_length=100)
+  name = models.CharField(max_length=100, help_text='</br>')
+  description = models.CharField(max_length=250, help_text='</br>')
+  instructions = models.TextField(max_length=350, help_text='</br>')
+  materials = models.CharField(max_length=100, help_text='</br>')
   number = models.IntegerField(default=5)
-  where = models.CharField(max_length=1,
+  where = models.CharField(max_length=1, help_text='</br>',
     choices=WHERE,
     default=WHERE[0][0])
   plans = models.ManyToManyField(Plan)

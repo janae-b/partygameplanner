@@ -7,14 +7,6 @@ body {
   background-position: center;
 }
 
-/* .navbar {
-  display: flex;
-  font-family: 'Bitter', serif;
-  min-height: 100vh;
-  flex-direction: column;
-  margin: 0;
-} */
-
 main {
   flex: 1 0 auto;
 }
@@ -48,14 +40,19 @@ h4 {
 }
 
 table {
-  margin: 10px;
+  margin: 35px;
   padding: 50px;
   justify-content: center;
-  margin-bottom: 50px;;
+  margin-bottom: 50px;
+  font-size: larger;
 }
 
 html {
   height:100%;
+}
+
+.task-button {
+  margin-left: 2rem;
 }
 
 .task-table {
@@ -177,7 +174,6 @@ html {
   top:50%;
   transform:translate(-50%, -50%);
 }
-
 
 #game-list-body {
   display: flex;
