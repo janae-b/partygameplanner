@@ -5,3 +5,4 @@ admin.site.register(Game)
 admin.site.register(Party)
 admin.site.register(Plan)
 admin.site.register(Photo)
+
