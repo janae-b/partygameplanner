@@ -24,32 +24,29 @@ Trello Board: https://trello.com/b/ZIGfWnXK/party-game-planner
 ***
 
 ### Login Page
-
+![Login](Login.png)
 
 ***
 
 ### Add Game Page
-
+![AddGame](AddGame.png)
 ***
 
 ### Game List Page
-
+![GameList](GameList.png)
 ***
 
 ### Game Detail Page
-
+![GameDetail](GameDetail.png)
 ***
 
 ### Add Task Page
-
+![AddTask](AddTask.png)
 ***
 
 ### Task List Page
-
+![TaskList](TaskList.png)
 ***
-
-## App Description:
-
 
 
 ## Technologies Used:
@@ -73,7 +70,7 @@ Trello Board: https://trello.com/b/ZIGfWnXK/party-game-planner
 * FontAwesome
 * Bootstrap
 * Google Fonts
-* Neumorphism.io
+
 
 ## Credits:
 
