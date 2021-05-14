@@ -93,9 +93,8 @@ html {
 
 .party-card {
   background: #FFEFBA;  /* fallback for old browsers */
-background: -webkit-linear-gradient(to right, #FFFFFF, #FFEFBA);  /* Chrome 10-25, Safari 5.1-6 */
-background: linear-gradient(to right, #FFFFFF, #FFEFBA); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-
+  background: -webkit-linear-gradient(to right, #FFFFFF, #FFEFBA);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #FFFFFF, #FFEFBA); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
   height:fit-content;
   margin-top: 5%;
   padding: 3%;
@@ -108,7 +107,6 @@ background: linear-gradient(to right, #FFFFFF, #FFEFBA); /* W3C, IE 10+/ Edge, F
   flex: center;
   margin: auto;
   margin-top: 1rem;
-  /* margin-bottom: 1rem; */
 }
 
 .btn-warning {
@@ -176,11 +174,6 @@ background: linear-gradient(to right, #FFFFFF, #FFEFBA); /* W3C, IE 10+/ Edge, F
   background: #FFEFBA;  /* fallback for old browsers */
   background: -webkit-linear-gradient(to right, #FFFFFF, #FFEFBA);  /* Chrome 10-25, Safari 5.1-6 */
   background: linear-gradient(to right, #FFFFFF, #FFEFBA); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-  
-/* 
-  background: #007991; 
-  background: -webkit-linear-gradient(to right, #78ffd6, #007991); 
-  background: linear-gradient(to right, #78ffd6, #007991); */
   text-align: center;
   min-width: 10rem;
   max-width: 20rem;

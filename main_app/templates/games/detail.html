@@ -24,7 +24,7 @@
       </div>
     </div class=photo-card>
     {% for photo in game.photo_set.all %}
-      <img class="photo-card" src="{{photo.url}}" width="300" height="300">
+      <img class="photo-card" src="{{photo.url}}" width="500" height="300">
     {% empty %}
       <div class="card-panel">No Photos Uploaded</div>
     {% endfor %}
