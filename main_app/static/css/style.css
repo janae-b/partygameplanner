@@ -57,6 +57,10 @@ html {
   margin: auto;
 }
 
+.add-game-table {
+  margin: auto;
+}
+
 .task-button {
   margin-left: 12rem;
   margin-top: 1rem;
@@ -91,8 +95,30 @@ html {
   margin-left: 30px;
 }
 
-.btn-info {
-  margin-left: 100px;
+.btn-warning {
+  display: flex;
+  flex: center;
+  margin: auto;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+ 
+}
+
+.game-cancel {
+  display: flex;
+  flex: center;
+  margin: auto;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  width: fit-content;
+}
+
+.btn-danger {
+  display: flex;
+  flex: center;
+  margin: auto;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
 }
 
 .card {
@@ -132,16 +158,9 @@ html {
   align-content: space-around;
   justify-content: center;
   border-radius: 42px;
-  /* background: #007991; 
+  background: #007991; 
   background: -webkit-linear-gradient(to right, #78ffd6, #007991); 
-  background: linear-gradient(to right, #78ffd6, #007991); */
-  /* background: #30E8BF;  
-background: -webkit-linear-gradient(to right, #FF8235, #30E8BF);  
-background: linear-gradient(to right, #FF8235, #30E8BF);  */
-background: #D66D75;  /* fallback for old browsers */
-background: -webkit-linear-gradient(to right, #E29587, #D66D75);  /* Chrome 10-25, Safari 5.1-6 */
-background: linear-gradient(to right, #E29587, #D66D75); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-        
+  background: linear-gradient(to right, #78ffd6, #007991);
   text-align: center;
   min-width: 10rem;
   max-width: 20rem;
@@ -152,6 +171,10 @@ background: linear-gradient(to right, #E29587, #D66D75); /* W3C, IE 10+/ Edge, F
 
 .card-task-content {
   font-size: 2.5rem;
+}
+
+.card-task-content-game {
+  font-size: 2.3rem;
 }
 
 .card-action {

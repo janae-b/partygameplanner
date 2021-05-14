@@ -63,17 +63,14 @@
     {% if plans.count %}
       {% for plan in plans.all %}
         <div class="card-task">
-          <div class="card-content">
-            <span class="card-title">
+          <div class="card-task-content">
               {{ plan.name }}
               {{ plan.get_emoji_display }}
-              </span>
-            </span>
           </div>
           <div class="card-action">
             <form action="{% url 'assoc_plan' game.id plan.id %}" method="post">
               {% csrf_token %}
-              <button type="submit" class="btn btn-warning"><i class="fas fa-check"></i></button>
+              <button type="submit" class="btn btn-dark"><i class="fas fa-check"></i></button>
             </form>
           </div>
         </div>
@@ -87,12 +84,9 @@
     {% if game.plans.count %}
       {% for plan in game.plans.all %}
         <div class="card-task">
-          <div class="card-content">
-            <span class="card-title">
+          <div class="card-task-content-game">
               {{ plan.name }}
               {{ plan.get_emoji_display }}
-              </span>
-            </span>
           </div>
         </div>
       {% endfor %}
