@@ -75,6 +75,8 @@ Trello Board: https://trello.com/b/ZIGfWnXK/party-game-planner
 
 * [Chris Smith](https://codepen.io/chris22smith) for the animated background
 * [ColorSpace](https://mycolor.space/gradient?ori=to+top&hex=%2343AA8B&hex2=%23713E5A&sub=1) for the gradient background
+* Icon made by Good Ware from https://www.flaticon.com
+* Gif from https://www.giphy.com
 
 ## Next Steps:
 
