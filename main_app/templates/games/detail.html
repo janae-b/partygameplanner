@@ -59,7 +59,7 @@
 <hr>
 <div class="row">
 <div class="col s6">
-    <h3>Available Preparation Tasks</h3>
+    <h3>Available Planning Tasks</h3>
     {% if plans.count %}
       {% for plan in plans.all %}
         <div class="card-task">
@@ -80,7 +80,7 @@
     {% endif %}
   </div>
   <div class="col s6">
-    <h3>What you've done to prepare for the game {{ game.name }}</h3>
+    <h3>What you've done to plan for the game {{ game.name }}</h3>
     {% if game.plans.count %}
       {% for plan in game.plans.all %}
         <div class="card-task">
