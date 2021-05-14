@@ -1,5 +1,10 @@
 {% extends 'base.html' %}
+{% load static %}
+
 {% block content %}
+
+
+
 <div class="bg"></div>
     <div class="bg bg2"></div>
     <div class="bg bg3"></div>
@@ -7,5 +12,8 @@
   	<h1>About the Party Game Planner</h1>
 	<hr />
 	<h3>Ever host a party and not have a game plan? You're in luck, this app will hep you make sure everyone is entertained by helping you plan ahead to have plenty of different games and activities to choose from.</h3>
+
+<img class="gif" src={% static "img/giphy-1.gif" %} width="480" height="262" frameBorder="0">
+
 
 {% endblock %}
