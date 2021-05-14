@@ -107,6 +107,7 @@ html {
   flex: center;
   margin: auto;
   margin-top: 1rem;
+  width: fit-content;
 }
 
 .btn-warning {
