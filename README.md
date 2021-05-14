@@ -16,7 +16,11 @@ Trello Board: https://trello.com/b/ZIGfWnXK/party-game-planner
 ***
 
 ### Landing Page
+![Welcome](Welcome.png)
+***
 
+### About Page
+![About](AboutPage.png)
 ***
 
 ### Login Page
