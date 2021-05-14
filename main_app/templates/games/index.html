@@ -2,27 +2,27 @@
 {% block content %}
 
 <h1>Game List</h1>
-<div class=misc>
-{% for game in games %}
-<div id="game-list-body">
-  <div class="row">
-    <div class="card text-center" style="width: 18rem;">
-      <div class="card-body">
-        <h3 class="card-title">{{ game.name }}</h3>
-        <p class="card-text">{{ game.description }}</p>
-      </div>
-      {% comment %} <ul class="list-group list-group-flush"> {% endcomment %}
-        <p><strong>Materials: </strong>{{ game.materials }}</p>
-        <p><strong>Where to play: </strong>{{ game.get_where_display }}</p>
-        <p><strong>How many people: </strong>{{ game.number }}</p>
-      {% comment %} </ul> {% endcomment %}
-      <div class="card-body">
-            <a href="{% url 'detail' game.id %}" class="btn btn-success">Game Details</a>
-      </div>
-    </div>
-  </div>
-</div>
-</div>
-{% endfor %}
 
+<ul>
+  <div id="list">
+    {% for game in games %}
+      <div class="row">
+        <div class="card text-center" style="width: 18rem;">
+          <div class="card-body">
+            <h3 class="card-title">{{ game.name }}</h3>
+            <p class="card-text">{{ game.description }}</p>
+          </div>
+          {% comment %} <ul class="list-group list-group-flush"> {% endcomment %}
+            <p><strong>Materials: </strong>{{ game.materials }}</p>
+            <p><strong>Where to play: </strong>{{ game.get_where_display }}</p>
+            <p><strong>How many people: </strong>{{ game.number }}</p>
+          {% comment %} </ul> {% endcomment %}
+          <div class="card-body">
+                <a href="{% url 'detail' game.id %}" class="btn btn-success">Game Details</a>
+          </div>
+        </div>
+      </div>
+  {% endfor %}
+  </div>
+</ul>
 {% endblock %}

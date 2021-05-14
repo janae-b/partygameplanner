@@ -3,15 +3,19 @@
 
 <h1>Preparation Tasks</h1>
 
-{% for plan in plan_list %}
-  <a href="{% url 'plans_detail' plan.id %}">
-    <div class="card-task">
-        <div class="card-task-content">
+<ul>
+  <div id="task">
+
+    {% for plan in plan_list %}
+      <a href="{% url 'plans_detail' plan.id %}">
+        <div class="card-task">
+          <div class="card-task-content">
             <span class="card-title">{{ plan.name }}</span>
             <p>{{ plan.get_emoji_display }}</p>
+          </div>
         </div>
-    </div>
-  </a>
-{% endfor %}
-
+      </a>
+    {% endfor %}
+  </div>
+</ul>
 {% endblock %}
