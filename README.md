@@ -1,5 +1,4 @@
 # Party Game Planner
-### Where you plan the games you can play with big groups at parties
 
 ## Description
 Party Game Planner was developed with the goal of allowing users to store their ideas for party games that big groups can play.  In this app the user can add games, the parties where they plan to play the game and add different tasks that they will need to do to plan for their game. This app was developed in one week during my time at General Assembly as a Django project.
