@@ -12,7 +12,6 @@ main {
 }
 
 footer.page-footer {
-  /* position: fixed; */
   margin-top: 15px;
   left: 0;
   bottom: 0;
@@ -26,6 +25,7 @@ h1 {
   justify-content: center;
   justify-self: center;
   align-items: center;
+  margin: auto;
   margin-top: 3%;
   margin-bottom: 4%;
 }
@@ -58,12 +58,13 @@ html {
 }
 
 .task-button {
-  margin-left: 2rem;
+  margin-left: 12rem;
+  margin-top: 1rem;
 }
 
 .task-table {
   font-size: larger;
-  justify-content: space-around
+  margin: auto;
 }
 
 .game-detail-button{
@@ -130,16 +131,22 @@ html {
   flex-wrap: wrap;
   align-content: space-around;
   justify-content: center;
-  /* border-radius: 42px;
-  background: linear-gradient(145deg, #2bc2d6, #24a3b4);
-  box-shadow:  17px 17px 0px #1b7b88,
-              -17px -17px 0px #35efff;  */
   border-radius: 42px;
-  background: linear-gradient(145deg, #6dc842, #5ca838);           
+  /* background: #007991; 
+  background: -webkit-linear-gradient(to right, #78ffd6, #007991); 
+  background: linear-gradient(to right, #78ffd6, #007991); */
+  /* background: #30E8BF;  
+background: -webkit-linear-gradient(to right, #FF8235, #30E8BF);  
+background: linear-gradient(to right, #FF8235, #30E8BF);  */
+background: #D66D75;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #E29587, #D66D75);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #E29587, #D66D75); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+        
   text-align: center;
   min-width: 10rem;
   max-width: 20rem;
-  margin: 20px;
+  margin: auto;
+  margin-top: 1rem;
   padding: 10px;
 }
 
